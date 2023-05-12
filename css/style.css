@@ -2917,7 +2917,20 @@ font-family: 'Dantina', sans-serif;
 .gallery-box {
     overflow: hidden;
     position: relative;
+    display: inline-block;
 }
+
+  .badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color:white;
+    padding: 8px;
+    border-radius: 50%;
+    font-family: "MTI Bulmer W01", serif;
+    font-size: 37px;
+    text-shadow: 2px 2px 4px #000000;
+  }
 .gallery-box .gallery-img {
     position: relative;
     overflow: hidden;
@@ -2968,7 +2981,7 @@ font-family: 'Dantina', sans-serif;
     opacity: 1;
 }
 .gallery-box:hover .gallery-img:after {
-    background: rgba(0,0,0, 0.2);
+    background: rgba(0,0,0, 0.7);
 }
 .gallery-box:hover .gallery-img > img {
     transform: scale(1.05);
@@ -2985,6 +2998,94 @@ button.mfp-arrow {
 
 
 /* ======= Isotope/Masonry Gallery style ======= */
+
+.gallery-img .content-overlay {
+    background: rgba(0,0,0,0.9);
+    position: absolute;
+    z-index:10;
+    height: 99%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.gallery-img:hover .content-overlay {
+    opacity: 1;
+}
+
+
+.content-details {
+    position: absolute;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    z-index: 100;
+  }
+  
+  .gallery-img:hover .content-details{
+    top: 50%;
+    left: 50%;
+    opacity: 1;
+  }
+  
+  .content-details h3{
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.5em;
+    text-transform: uppercase;
+  }
+  
+  .content-details p{
+    color: #fff;
+    font-size: 0.8em;
+  }
+  
+  .fadeIn-bottom{
+    top: 80%;
+  }
+
+  .distance-dot:before {
+    content:"\A";
+      width:15px;
+      height:15px;
+      border: solid 1px white;
+      border-radius:50%;
+      display:inline-block;
+      margin:0 10px;
+  }
+  .black-dot:before {
+    background: black;
+  }
+  .blue-dot:before {
+    background: blue;
+  }
+  .white-dot:before {
+    background: white;
+  }
+  .green-dot:before {
+    background: green;
+  }
+  .yellow-dot:before {
+    background: #FCD003;
+  }
+
 .florya-masonry-wrapper {
   position: relative;
   overflow: hidden;
