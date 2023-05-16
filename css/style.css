@@ -823,12 +823,29 @@ color: #fff;
     height: 100px;
     border: none;
 }
+
+.navbar>.container {
+    justify-content: center !important;
+}
+.navbar-expand-md .navbar-collapse {
+    justify-content: center !important;
+}
+
 .navbar-toggler-icon {
     background-image: none;
 }
+
 .navbar .navbar-toggler-icon,
 .navbar .icon-bar {
     color: #FFF;
+}
+
+.navbar .navbar-nav {
+    align-items: center;
+}
+
+.navbar-nav .nav-item{
+    margin: 0 20px;
 }
 .navbar .navbar-nav .nav-link {
     font-size: 16px;
@@ -951,8 +968,7 @@ color: #fff;
     padding: 0;
 }
 .logo-img {
-    padding: 20px 0;
-    width: 160px;
+    width: 216px;
     text-align: center;
 }
 .dropdown .nav-link i {
