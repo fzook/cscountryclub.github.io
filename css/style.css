@@ -133,7 +133,7 @@ input[type="password"],
 input[type="email"],
 input[type="text"],
 input[type="file"],
-textarea {
+textarea, .dropdown {
     max-width: 100%;
     margin-bottom: 10px;
     padding: 10px 15px;
@@ -150,6 +150,8 @@ textarea {
     background-image: none;
     border: 1px solid #13160d;
 }
+
+
 input:focus,
 textarea:focus {
     border-bottom-width: 1px;
@@ -174,10 +176,7 @@ input[type="button"]:hover,
 button:hover {
     border: 0px solid transparent;
 }
-select {
-    padding: 10px;
-    border-radius: 5px;
-}
+
 table,
 th,
 tr,
@@ -970,6 +969,9 @@ color: #fff;
 .logo-img {
     width: 216px;
     text-align: center;
+}
+.dropdown:hover {
+    cursor: pointer;
 }
 .dropdown .nav-link i {
     padding-left: 0px;
