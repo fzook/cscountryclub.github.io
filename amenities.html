@@ -11,8 +11,326 @@
     <link rel="shortcut icon" href="img/favicon.png" />
     <link rel="stylesheet" href="css/plugins.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    /> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> -->
   </head>
+  <style>
+    /* Modal */
+    .modal {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: flex-start; /* or center */
+      z-index: 100000; /* depending on what z-index values exist in your page, in order for the modal layer to sit on top of other content */
+      overflow: auto; /* enable scrolling if needed - although this is not really necessary since we are going take care of overflow in modal-content */
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .modal.modal-show {
+      animation: fadeIn 0.1s ease-in-out forwards;
+    }
+    .modal.modal-hide {
+      animation: fadeOut 0.1s ease-in-out 0.1s forwards;
+    }
+    .modal-content {
+      position: relative;
+      background-color: #fff;
+      margin: 2rem;
+      padding: 2rem;
+      border-radius: 0.25rem;
+      width: 50%;
+      max-height: 75%;
+      overflow: auto;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .modal.modal-show .modal-content {
+      animation: fadeInDown 0.3s ease-in-out forwards;
+    }
+    .modal.modal-hide .modal-content {
+      animation: fadeOutUp 0.2s ease-in-out forwards;
+    }
+    .modal-content h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .modal-content p {
+      margin: 1rem 0;
+      line-height: 1.5rem;
+    }
+    .modal-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 1.75rem;
+      font-weight: bold;
+      padding: 0 0.75rem;
+      /* width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+      color: rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      user-select: none;
+    }
+    .modal-close:hover,
+    .modal-close:focus {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @keyframes fadeInDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-3rem);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeOutUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-3rem);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .modal-content {
+        width: 80%;
+      }
+    }
+    @media (max-width: 767px) {
+      .modal-content {
+        padding: 2rem 1rem 1rem 1rem;
+        width: 90%;
+      }
+      .modal-content h1 {
+        margin-bottom: 1.5rem;
+      }
+    }
+  </style>
   <body>
+    <!-- THIS IS WHERE ALL YOUR MODALS ARE: -->
+
+    <!-- DINING MODAL: -->
+    <div class="modal" id="dining-modal">
+      <!-- This is the background overlay -->
+      <div class="modal-content">
+        <!-- This is the actual modal/popup box -->
+        <span class="modal-close">&times;</span>
+        <h1>Dining</h1>
+        <p>
+          CSCC offers breakfast, lunch and dinner. Our traditional menus are
+          updated regularly and feature seasonal entrees and delicious weekly
+          specials, carefully created by our Executive Chef.
+        </p>
+        <p>
+          In addition to our main Dining Room, our Members may dine in the
+          Lounge which provides a casual setting to relax with friends and
+          family. During the warmer months, we open our covered Patio with
+          beautiful pool and course views. Private, well-appointed banquet rooms
+          are also available for various functions.
+        </p>
+        <p>
+          Our Golf Patio overlooks the 9th green, and is a fun place to enjoy
+          refreshments from the Founder's Grill following a round. Members and
+          their guests at the Aquatic Center may order from our full dining menu
+          or from the Founder's Grill.
+        </p>
+      </div>
+    </div>
+
+    <!-- FITNES MODAL -->
+
+    <div class="modal" id="fitness-modal">
+      <!-- This is the background overlay -->
+      <div class="modal-content">
+        <!-- This is the actual modal/popup box -->
+        <span class="modal-close">&times;</span>
+        <h1>Fitness</h1>
+        <p>
+          The Fitness Center is open every day and provides an assortment of
+          equipment including treadmills, stationary bikes and ellipticals for
+          cardio workouts, as well as hand held weights and resistance equipment
+          for strength training.
+        </p>
+        <p>
+          Complimentary group classes include Circuit Training, Boot Camp,
+          Zumba, Yoga, Mat Pilates and specialty Workshops. Personal fitness
+          assessments and customized programs are offered by Personal Trainers
+          when possible.
+        </p>
+      </div>
+    </div>
+
+    <!-- AQUATICS MODAL -->
+
+    <div class="modal" id="aquatics-modal">
+      <!-- This is the background overlay -->
+      <div class="modal-content">
+        <!-- This is the actual modal/popup box -->
+        <span class="modal-close">&times;</span>
+        <h1>Aquatics</h1>
+        <p>
+          The recently renovated Aquatics Complex at Colorado Springs Country
+          Club provides a full program of lessons, safety and fun for every
+          member of the family. Centering the complex is our child-friendly
+          large pool, featuring a slide and diving board. In addition, there is
+          a shallow-water toddler pool and a four-lane lap pool. Lifeguards are
+          certified in CPR, First Aid and Lifeguarding. The pools are situated
+          within a beautifully landscaped fenced area, and conveniently located
+          between the Founder's Grill and Clubhouse.
+        </p>
+        <h3>We provide aquatic programing including:</h3>
+        <ul>
+          <li>Water Aerobics classes</li>
+          <li>Swimming lessons</li>
+          <li>
+            Pool-centered activities throughout the summer, such as Dive-In
+            Movies and Holiday celebrations for Memorial Day, Father's Day, 4th
+            of July and Labor Day
+          </li>
+          <li>
+            Colorado Springs Country Club Swim Team – a local competitive team
+          </li>
+        </ul>
+        <p>
+          Kate Doane, manager of the CSCC Aquatics Program, is a graduate of
+          Indiana University with a B.S. in Kinesiology and an M.S. in Health
+          Science. Kate played varsity water polo for IU and was named an
+          All-American in her sport. In addition to coaching the Colorado
+          Springs Swim Team, Kate is head coach for both the Cheyenne Mountain
+          High School Girls and Boys swim teams. In 2022, she was awarded Boys
+          Swim and Dive 4A CHSAA Coach of the Year again. She is also a
+          certified instructor for CPR, First Aid, and Lifeguard training.
+        </p>
+      </div>
+    </div>
+
+    <!-- RACKET MODAL -->
+
+    <div class="modal" id="racket-modal">
+      <!-- This is the background overlay -->
+      <div class="modal-content">
+        <!-- This is the actual modal/popup box -->
+        <span class="modal-close">&times;</span>
+        <h1>Racket Sports</h1>
+        <h3>Tennis</h3>
+        <p>
+          Colorado Springs Country Club offers a variety of tennis programs for
+          adults and kids. Our four outdoor courts are open year-round, and two
+          have lighting until 10 p.m.
+        </p>
+        <p>
+          CSCC offers adult lessons including group, semi-private, and private.
+          We have a Master’s Tennis program, as well as competitive USTA women’s
+          and mixed teams. Additionally, complimentary beginning tennis lessons
+          and Fun Days are available.
+        </p>
+        <p>
+          Our youth programs promote fun, exercise, and skill development. We
+          offer tennis lessons for children aged three and up. We also have a
+          competitive USTA Junior Team that plays other clubs in the area.
+        </p>
+        <h3>Pickleball</h3>
+        <p>
+          CSCC offers complimentary classes and sessions for all levels, social
+          events, member open play, as well as private lessons with our Director
+          and staff. Courts can be reserved on the web site for your preferred
+          time and group size.
+        </p>
+        <a style="color: #748173; font-weight: bold" href="Pros.html"
+          >Meet our tennis professionals</a
+        >
+      </div>
+    </div>
+
+    <!-- SOCIAL MODAL -->
+
+    <div class="modal" id="social-modal">
+      <!-- This is the background overlay -->
+      <div class="modal-content">
+        <!-- This is the actual modal/popup box -->
+        <span class="modal-close">&times;</span>
+        <h1>Social</h1>
+        <p>
+          Social activities are held throughout the year, and inclusive of all
+          ages. These are enjoyed by our small, friendly community of members,
+          and include:
+        </p>
+        <ul>
+          <li>
+            Holiday and cocktail parties, live music by the pool, wine pairing
+            dinners, our traditional Chicken & Bingo, Pickleball Socials, and
+            Trivia Nights
+          </li>
+          <li>Mahjong and Bridge groups</li>
+          <li>Book and Craft clubs</li>
+          <li>
+            Family-friendly Halloween, Easter Bunny and Santa parties, movie and
+            game nights
+          </li>
+          <li>
+            Outstanding menus that are carefully created by the Club’s Executive
+            Chef and Pastry Chef
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Caddy MODAL -->
+
+    <div class="modal" id="caddy-modal">
+      <!-- This is the background overlay -->
+      <div class="modal-content">
+        <!-- This is the actual modal/popup box -->
+        <span class="modal-close">&times;</span>
+        <h1>Caddy Shack</h1>
+        <h3>Our Super Awesome Kids' Recreation Center!</h3>
+        <p>
+          Stocked with art supplies, games, movies, and more, Caddy Shack is a
+          place for kids to be kids. Well-equipped with toys, stuffed animals,
+          and games, kids have a wide variety of activities to choose from.
+          Maybe your child would like to check out our big screen room with
+          comfy bean-bags for watching movies or playing our Wii. Or kids can
+          play a variety of video games on our PlayStation 4 or Xbox One
+          systems. Our air-hockey table is a popular spot for friendly
+          competition. Drawing, coloring, and writing on our chalkboard wall are
+          also fun options.
+        </p>
+      </div>
+    </div>
+
     <!-- Preloader -->
     <div class="preloader-bg"></div>
     <div id="preloader">
@@ -82,7 +400,7 @@
     <div
       class="banner-header section-padding valign bg-img bg-fixed"
       data-overlay-dark="3"
-      data-background="img/amenities.gif"
+      data-background="img/amenities/amenities.png"
     >
       <div class="container">
         <div class="row">
@@ -104,25 +422,42 @@
     </div>
 
     <!-- Services -->
+
     <section class="services section-padding" data-scroll-index="1">
+      <div class="row florya-gallery-items"></div>
       <div class="container">
         <div class="row">
+          <!-- <div class="col-md-4">
+            <div class="item custom-amenities-card-container">
+              <div class="position-re o-hidden">
+                <div class="gallery-img content-overlay"></div>
+                <img src="img/Amenities/Dining.gif" alt="" />
+                <div class="content-details fadeIn-bottom"></div>
+                <h5 class="content-title">Dining</h5>
+              </div>
+              <p class="content-text">
+                Your tee shot should avoid trees on the left and a large
+                drainage basin on the right. Long hitters can fly through the
+                fairway, so club accordingly. The fairway is slightly uphill to
+                a fairly large green. The area just beyond the green is out of
+                bounds.
+              </p>
+            </div>
+          </div> -->
           <div class="col-md-4">
             <div class="item custom-amenities-card-container">
               <div class="position-re o-hidden">
-                <img src="img/Amenities/Dining.gif" alt="" />
+                <img src="img/Amenities/Dining.png" alt="" />
               </div>
-              <div class="con">
+              <div class="con" data-modal-target="dining-modal">
                 <h5>
-                  <a href="services-page.html"><span>Dining</span></a>
+                  <span>Dining</span>
                 </h5>
                 <div class="line"></div>
                 <div class="row facilities">
                   <div class="col-md-12 text-right">
                     <div class="permalink">
-                      <a href="#" id="myBtn"
-                        >Explore <i class="ti-arrow-right"></i
-                      ></a>
+                      Explore <i class="ti-arrow-right"></i>
                     </div>
                   </div>
                 </div>
@@ -130,21 +465,22 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item custom-amenities-card-container">
+            <div
+              class="item custom-amenities-card-container"
+              data-modal-target="fitness-modal"
+            >
               <div class="position-re o-hidden">
                 <img src="img/Amenities/fitness.gif" alt="" />
               </div>
               <div class="con">
                 <h5>
-                  <a href="services-page.html"><span>Fitness</span></a>
+                  <span>Fitness</span>
                 </h5>
                 <div class="line"></div>
                 <div class="row facilities">
                   <div class="col-md-12 text-right">
                     <div class="permalink">
-                      <a href="services-page.html"
-                        >Explore <i class="ti-arrow-right"></i
-                      ></a>
+                      Explore <i class="ti-arrow-right"></i>
                     </div>
                   </div>
                 </div>
@@ -152,21 +488,22 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item custom-amenities-card-container">
+            <div
+              class="item custom-amenities-card-container"
+              data-modal-target="aquatics-modal"
+            >
               <div class="position-re o-hidden">
                 <img src="img/Amenities/pool.jpg" alt="" />
               </div>
               <div class="con">
                 <h5>
-                  <a href="services-page.html"><span>Aquatics</span></a>
+                  <span>Aquatics</span>
                 </h5>
                 <div class="line"></div>
                 <div class="row facilities">
                   <div class="col-md-12 text-right">
                     <div class="permalink">
-                      <a href="services-page.html"
-                        >Explore <i class="ti-arrow-right"></i
-                      ></a>
+                      Explore <i class="ti-arrow-right"></i>
                     </div>
                   </div>
                 </div>
@@ -174,21 +511,22 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item custom-amenities-card-container">
+            <div
+              class="item custom-amenities-card-container"
+              data-modal-target="racket-modal"
+            >
               <div class="position-re o-hidden">
                 <img src="img/Amenities/tennis.jpg" alt="" />
               </div>
               <div class="con">
                 <h5>
-                  <a href="services-page.html"><span>Racket Sports</span></a>
+                  <span>Racket Sports</span>
                 </h5>
                 <div class="line"></div>
                 <div class="row facilities">
                   <div class="col-md-12 text-right">
                     <div class="permalink">
-                      <a href="services-page.html"
-                        >Explore <i class="ti-arrow-right"></i
-                      ></a>
+                      Explore <i class="ti-arrow-right"></i>
                     </div>
                   </div>
                 </div>
@@ -196,23 +534,22 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item custom-amenities-card-container">
+            <div
+              class="item custom-amenities-card-container"
+              data-modal-target="social-modal"
+            >
               <div class="position-re o-hidden">
                 <img src="img/Amenities/social.jpg" alt="" />
               </div>
               <div class="con">
                 <h5>
-                  <a href="services-page.html"
-                    ><span>Social Activities</span></a
-                  >
+                  <span>Social Activities</span>
                 </h5>
                 <div class="line"></div>
                 <div class="row facilities">
                   <div class="col-md-12 text-right">
                     <div class="permalink">
-                      <a href="services-page.html"
-                        >Explore <i class="ti-arrow-right"></i
-                      ></a>
+                      Explore <i class="ti-arrow-right"></i>
                     </div>
                   </div>
                 </div>
@@ -220,21 +557,22 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="item custom-amenities-card-container">
+            <div
+              class="item custom-amenities-card-container"
+              data-modal-target="caddy-modal"
+            >
               <div class="position-re o-hidden">
                 <img src="img/Amenities/kids.jpg" alt="" />
               </div>
               <div class="con">
                 <h5>
-                  <a href="services-page.html"><span>Caddy Shack</span></a>
+                  <span>Caddy Shack</span>
                 </h5>
                 <div class="line"></div>
                 <div class="row facilities">
                   <div class="col-md-12 text-right">
                     <div class="permalink">
-                      <a href="services-page.html"
-                        >Explore <i class="ti-arrow-right"></i
-                      ></a>
+                      Explore <i class="ti-arrow-right"></i>
                     </div>
                   </div>
                 </div>
@@ -248,7 +586,7 @@
     <section
       class="video-wrapper video section-padding bg-img bg-fixed"
       data-overlay-dark="4"
-      data-background="img/Course/water12.gif"
+      data-background="img/Course/water12.png"
     >
       <div class="container">
         <div class="row">
@@ -356,4 +694,54 @@
     <script src="js/smooth-scroll.min.js"></script>
     <script src="js/custom.js"></script>
   </body>
+  <script type="text/javascript">
+    const modalTriggerButtons = document.querySelectorAll(
+      "[data-modal-target]"
+    );
+    const modals = document.querySelectorAll(".modal");
+    const modalCloseButtons = document.querySelectorAll(".modal-close");
+
+    modalTriggerButtons.forEach((elem) => {
+      elem.addEventListener("click", (event) =>
+        toggleModal(event.currentTarget.getAttribute("data-modal-target"))
+      );
+    });
+    modalCloseButtons.forEach((elem) => {
+      elem.addEventListener("click", (event) =>
+        toggleModal(event.currentTarget.closest(".modal").id)
+      );
+    });
+    modals.forEach((elem) => {
+      elem.addEventListener("click", (event) => {
+        if (event.currentTarget === event.target)
+          toggleModal(event.currentTarget.id);
+      });
+    });
+
+    // Maybe also close with "Esc"...
+    document.addEventListener("keydown", (event) => {
+      if (event.keyCode === 27 && document.querySelector(".modal.modal-show")) {
+        toggleModal(document.querySelector(".modal.modal-show").id);
+      }
+    });
+
+    function toggleModal(modalId) {
+      console.log("test");
+      const modal = document.getElementById(modalId);
+
+      if (getComputedStyle(modal).display === "flex") {
+        // alternatively: if(modal.classList.contains("modal-show"))
+        modal.classList.add("modal-hide");
+        setTimeout(() => {
+          document.body.style.overflow = "initial"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown - in this case: "initial" <=> "visible"
+          modal.classList.remove("modal-show", "modal-hide");
+          modal.style.display = "none";
+        }, 200);
+      } else {
+        document.body.style.overflow = "hidden"; // Optional: in order to enable/disable page scrolling while modal is hidden/shown
+        modal.style.display = "flex";
+        modal.classList.add("modal-show");
+      }
+    }
+  </script>
 </html>
