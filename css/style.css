@@ -42,6 +42,12 @@
  
 ------------------------------------------------------- */
 
+/* Coming Soon */
+
+.comingSoonTitle h1 {
+    text-align: center;
+}
+
 /* Custom & Google Font style */
 @font-face {
     font-family: 'Dantina';
@@ -4182,13 +4188,14 @@ font-family: 'Didact Gothic', sans-serif;
 }
 /* go home */
 .go-back{
-	margin-top: 15px;
+	margin-top: 50px;
 }
 .go-back a {
 	color: #fff;
 	display: inline-block;
     font-family: 'Didact Gothic', sans-serif;
 	font-size: 16px;
+    font-weight: bold;
 }
 .go-back a:hover {
 	color: #fff;
@@ -4198,7 +4205,8 @@ font-family: 'Didact Gothic', sans-serif;
 }
 .go-back a span i {
 	color: #fff;
-	font-size: 12px;
+	font-size: 16px;
+    
 }
 .go-back a:hover span{
 	padding-right: 15px;
